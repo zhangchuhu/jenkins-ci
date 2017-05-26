@@ -16,3 +16,24 @@ Example: `build.html`
 </script>
 ```
 
+## List SVN Dirs
+
+Interface:
+
+    "http://172.27.142.7:8070" + jenkinsLib.projectSVN
+
+Example:
+
+http://172.27.142.7:8070/yy-music/src/server/trunk/
+
+## Check Sub Dir has [Mm]akefile or pom.xml
+
+Interface:
+
+    "http://172.27.142.7:8070" + jenkinsLib.projectSVN + jenkinsLib.projectDir + "/Makefile"
+    
+Example:
+
+ http://172.27.142.7:8070/yy-music/src/server/trunk/music_videoSnapshot_d/Makefile
+ 
+ 
