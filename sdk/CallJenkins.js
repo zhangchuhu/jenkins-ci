@@ -1,8 +1,8 @@
 var jenkinsURL = 'http://172.27.142.7:8080'
 
 var jenkinsAuth = {
-  username: 'admin',
-  password: '723a6a9ca9abad9530b120918a607528'
+  username: 'xxxxxx',  // Need apply
+  password: 'xxxxxx'
 }
 
 var jenkinsGet = {
@@ -200,9 +200,9 @@ var jenkinsLib = {
   }
 }
 
-jenkinsLib.projectTemplate = 'template-cpp-music'
-jenkinsLib.projectSVN = '/yy-music/src/server/trunk/'
-jenkinsLib.projectDir = 'music_attentionList_d'
-jenkinsLib.projectImage = 'music_attentionlist_m'
+jenkinsLib.projectTemplate = 'template-cpp-music'      // Template for yy-music C++ projects. Every biz has its own template.
+jenkinsLib.projectSVN = '/yy-music/src/server/trunk/'  // Must start with '/' and must end with '/'
+jenkinsLib.projectDir = 'music_attentionList_d'        // The direct sub-dir of above path
+jenkinsLib.projectImage = 'music_attentionlist_m'      // Docker image name
 
-jenkinsLib.buildProject()
+jenkinsLib.buildProject()                              // Start build
