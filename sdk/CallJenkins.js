@@ -205,4 +205,4 @@ jenkinsLib.projectSVN = '/yy-music/src/server/trunk/'  // Must start with '/' an
 jenkinsLib.projectDir = 'music_attentionList_d'        // The direct sub-dir of above path
 jenkinsLib.projectImage = 'music_attentionlist_m'      // Docker image name
 
-jenkinsLib.buildProject()                              // Start build
+//jenkinsLib.buildProject()                              // Start build
