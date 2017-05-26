@@ -1,5 +1,9 @@
 # Build API and SDK
 
+## Overview
+
+![Overview](/ci-2.png)
+
 ## Build SDK
 
 Example: `build.html`
