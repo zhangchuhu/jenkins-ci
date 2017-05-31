@@ -4,7 +4,7 @@
 
 ![Overview](/ci-2.png)
 
-## Build SDK
+## 构建 SDK
 
 Example: `build.html`
 
@@ -20,7 +20,26 @@ Example: `build.html`
 </script>
 ```
 
-## List SVN Dirs
+### 构建参数
+
+*   `projectTemplate` 项目模板表示一套预定义的构建环境。目前的模板有：
+
+    -   娱乐后台C++项目 (ubuntu12.04 g++32bits)
+
+*   `projectSVN + projectDir` 以 `/` 开头的 SVN 路径。例如：
+    
+    -   主干路径 `/yy-music/src/server/trunk/music_attentionList_d` 或者
+    -   分支路径 `/yy-music/src/server_baselib/branches/release_2/nraq_antichat_d`
+
+## 验证 SVN 路径合法性 
+
+### 检查 `projectSVN` 是否合法
+
+1. 必须以 `/` 开头 ，必须以 `/` 结尾
+2. 必须包含 `/trunk/`（是主干）
+3. 或者，包含 `/branches/XXXXXX/` （是分支。XXXXXX为分支名）
+
+### 列出所有的 `projectDir`
 
 Interface:
 
@@ -30,7 +49,7 @@ Example:
 
 http://172.27.142.7:8070/yy-music/src/server/trunk/
 
-## Check Sub Dir has [Mm]akefile or pom.xml
+### 检查 `projectDir` 是否合法，看下面是否有 `[Mm]akefile`
 
 Interface:
 
@@ -39,5 +58,4 @@ Interface:
 Example:
 
  http://172.27.142.7:8070/yy-music/src/server/trunk/music_videoSnapshot_d/Makefile
- 
  
