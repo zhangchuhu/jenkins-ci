@@ -59,11 +59,14 @@ Example:
 
  http://172.27.142.7:8070/yy-music/src/server/trunk/music_videoSnapshot_d/Makefile
  
-## 显示构建进度
+## 显示构建进度，获知构建成功失败
 
-修改 `jenkinsLib._checkJob` 
+在调用 `jenkinsLib.buildProject()` 之前注册回调事件
 
-## 获知构建成功失败
-
-修改 `jenkinsLib._doneJob`   result == "SUCCESS" 成功 "FAILURE" 失败  
-
+```js
+jenkinsLib.onProgress = function(phase, progress, result) {
+    // phase: string - Scheduling, Building, Done
+    // progress: number - [0, 100]
+    // result: string - undefined, SUCCESS, FAILURE
+  }
+```
