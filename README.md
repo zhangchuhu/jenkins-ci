@@ -31,7 +31,7 @@ Example: `build.html`
     -   主干路径 `/yy-music/src/server/trunk/music_attentionList_d` 或者
     -   分支路径 `/yy-music/src/server_baselib/branches/release_2/nraq_antichat_d`
 
-## 验证 SVN 路径合法性 
+## 验证 SVN 路径 
 
 ### 检查 `projectSVN` 是否合法
 
@@ -59,3 +59,11 @@ Example:
 
  http://172.27.142.7:8070/yy-music/src/server/trunk/music_videoSnapshot_d/Makefile
  
+## 显示构建进度
+
+修改 `jenkinsLib._checkJob` 
+
+## 获知构建成功失败
+
+修改 `jenkinsLib._doneJob`   result == "SUCCESS" 成功 "FAILURE" 失败  
+
