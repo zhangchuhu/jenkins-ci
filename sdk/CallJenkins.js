@@ -31,6 +31,12 @@ var jenkinsLib = {
   projectSVN: '/yy-music/src/server/trunk/',
   projectDir: '',
   projectImage: '',
+  
+  onProgress: function(phase, progress, result) {
+    // phase: string - Scheduling, Building, Done
+    // progress: number - [0, 100]
+    // result: string - undefined, SUCCESS, FAILURE
+  },
 
   _log: function(message) {
     console.log('Call_Jenkins: ' + message)
@@ -167,12 +173,11 @@ var jenkinsLib = {
           if (response.data.building) {
             var progress = response.data.executor.progress
             if (progress < 0)
-              progress = ''
+              progress = 0
             else if (progress > 100)
-              progress = '100%'
-            else
-              progress = progress + '%'
+              progress = 100
             self._log('Building... ' + progress)
+            self.onProgress('Building', progress, undefined)
             self._checkJob(buildURL)
           } else {
             self._doneJob(buildURL)
@@ -181,6 +186,7 @@ var jenkinsLib = {
         .catch(function(error) {
           if (error.response && error.response.status === 404) {
             self._log('Scheduling...')
+            self.onProgress('Scheduling', 0, undefined)
             self._checkJob(buildURL)
           } else {
             self._error(error)
@@ -193,6 +199,7 @@ var jenkinsLib = {
     axios.get(buildURL + '/api/json', jenkinsGet)
       .then(function(response) {
         self._log('Done. Result ' + response.data.result + ', Cost ' + response.data.duration + ' ms')
+        self.onProgress('Done', 100, response.data.result)
       })
       .catch(function(error) {
         self._error(error)
