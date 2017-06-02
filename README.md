@@ -64,7 +64,8 @@ Example:
 在调用 `jenkinsLib.buildProject()` 之前注册回调事件
 
 ```js
-jenkinsLib.onProgress = function(phase, progress, result) {
+jenkinsLib.onProgress: function(job, phase, progress, result) {
+    // job: string - URL of this job
     // phase: string - Scheduling, Building, Done
     // progress: number - [0, 100]
     // result: string - undefined, SUCCESS, FAILURE
