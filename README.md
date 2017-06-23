@@ -16,6 +16,7 @@ Example: `build.html`
     jenkinsLib.projectSVN = '/yy-music/src/server/trunk/'  // Must start with '/' and must end with '/'
     jenkinsLib.projectDir = 'music_attentionList_d'        // The direct sub-dir of above path
     jenkinsLib.projectImage = 'music_attentionlist_m'      // Docker image name
+    jenkinsLib.projectPname = ''                           // Comma separated process names produced by this build.
     jenkinsLib.buildProject()                              // Start build
 </script>
 ```
