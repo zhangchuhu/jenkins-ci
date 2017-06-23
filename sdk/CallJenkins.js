@@ -31,6 +31,7 @@ var jenkinsLib = {
   projectSVN: '/yy-music/src/server/trunk/',
   projectDir: '',
   projectImage: '',
+  projectPname: '',
   
   onProgress: function(job, phase, progress, result) {
     // job: string - URL of this job
@@ -156,6 +157,7 @@ var jenkinsLib = {
         var params = new URLSearchParams()
         params.append('BUILD_TEMPLATE', self.projectTemplate)
         params.append('IMAGE_NAME', self.projectImage)
+        params.append('PROCESS_NAME', self.projectPname)
         return axios.post(jobURL + '/buildWithParameters', params, jenkinsPostForm)
       })
       .then(function(response) {
